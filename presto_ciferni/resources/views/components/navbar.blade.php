@@ -16,10 +16,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Ciao, {{ Auth::user()->name }}
+                            Ciao, {{ auth()->user()->name }}
                         </a>
 
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('create.article') }}">Crea</a></li>
                             <li>
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
