@@ -11,6 +11,27 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('homepage') }}">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('article.index') }}">Tutti gli articoli</a>
+                </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categorie
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        @foreach ($categories as $category)
+                            <li>
+                                <a class="dropdown-item text-capitalize" href="{{ route('byCategory', ['category' => $category])}}">{{ $category->name }}</a>
+                            </li>
+
+                            @if (!$loop->last)
+                                <hr class="dropdown-divider">
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
 
                 @auth
                     <li class="nav-item dropdown">
@@ -21,6 +42,7 @@
 
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('create.article') }}">Crea</a></li>
+                            
                             <li>
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
