@@ -1,4 +1,21 @@
 <x-layout>
+<div class="container pt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            @if (session()->has('errorMessage'))
+                <div class="alert alert-danger text-center shadow rounded">
+                    {{ session('errorMessage') }}
+                </div>
+            @endif
+
+            @if (session()->has('message'))
+                <div class="alert alert-success text-center shadow rounded">
+                    {{ session('message') }}
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
     <div class="container-fluid text-center">
         <div class="row vh-100 justify-content-center align-items-center">
             <div class="col-12">

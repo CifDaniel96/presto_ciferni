@@ -112,6 +112,19 @@
   </section>
   <!-- Section: Links  -->
 
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-5 mb-3 text-center">
+        <h5>Vuoi diventare revisore?</h5>
+        <p>Cliccando il bottone sottostante farai richiesta al nostro admin</p>
+
+        <a href="{{ route('become.revisor') }}" class="btn btn-success">
+          Diventa revisore
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyright:
