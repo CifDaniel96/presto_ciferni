@@ -38,7 +38,7 @@ class CreateArticleForm extends Component
 
         $this->reset();
 
-        session()->flash('success', 'Articolo creato correttamente!');
+        session()->flash('success', __('ui.articleCreated'));;
     }
 
 

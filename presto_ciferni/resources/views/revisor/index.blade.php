@@ -15,7 +15,7 @@
             <div class="col-3">
                 <div class="rounded shadow bg-body-secondary">
                     <h1 class="display-5 text-center pb-2">
-                        Revisor dashboard
+                        {{ __('ui.revisorDashboard') }}
                     </h1>
                 </div>
             </div>
@@ -37,9 +37,11 @@
                 <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
                     <div>
                         <h1>{{ $article_to_check->title }}</h1>
-                        <h3>Autore: {{ $article_to_check->user->name }}</h3>
-                        <h4>{{ $article_to_check->price }}€</h4>
-                        <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
+                        <h3>{{ __('ui.author') }}: {{ $article_to_check->user->name }}</h3>
+                        <h4>{{ __('ui.price') }}: {{ $article_to_check->price }} €</h4>
+                        <h4 class="fst-italic text-muted">
+                            #{{ __('ui.' . $article_to_check->category->name) }}
+                        </h4>
                         <p class="h6">{{ $article_to_check->description }}</p>
                     </div>
 
@@ -47,13 +49,13 @@
                         <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-danger py-2 px-5 fw-bold ">Rifiuta</button>
+                            <button class="btn btn-danger py-2 px-5 fw-bold ">{{ __('ui.reject') }}</button>
                         </form>
 
                         <form action="{{ route('accept', ['article' => $article_to_check]) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-success py-2 px-5 fw-bold ">Accetta</button>
+                            <button class="btn btn-success py-2 px-5 fw-bold ">{{ __('ui.accept') }}</button>
                         </form>
                     </div>
                 </div>
@@ -62,9 +64,11 @@
             <div class="row justify-content-center align-items-center height-custom text-center">
                 <div class="col-12">
                     <h1 class="fst-italic display-4">
-                        Nessun articolo da revisionare
+                        {{ __('ui.noArticlesToReview') }}
                     </h1>
-                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success"> Torna all'homepage</a>
+                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">
+                        {{ __('ui.backToHomepage') }}
+                    </a>
                 </div>
             </div>
         @endif

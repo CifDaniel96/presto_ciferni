@@ -22,7 +22,7 @@
                 <h1 class="display-1">Presto.it</h1>
                 <div class="my-3">
                     @auth
-                        <a class="btn btn-dark" href="{{ route('create.article') }}">Pubblica un articolo</a>
+                        <a class="btn btn-dark" href="{{ route('create.article') }} ">{{ __('ui.publishArticle') }}</a>
                     @endauth
                 </div>
                 <div class="row height-custom justify-content-center align-items-center py-5">
@@ -33,7 +33,7 @@
                     @empty
                         <div class="col-12">
                             <h3 class="text-center">
-                                Non sono ancora stati creati articoli
+                                {{ __('ui.noArticlesYet') }}
                             </h3>
                         </div>
                     @endforelse
