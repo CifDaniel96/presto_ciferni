@@ -1,7 +1,7 @@
 <x-layout>
-    <div class="container pt-4">
+    <section class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-8">
                 @if (session()->has('message'))
                     <div class="alert alert-success text-center shadow rounded">
                         {{ session('message') }}
@@ -9,164 +9,175 @@
                 @endif
             </div>
         </div>
-    </div>
 
-    <div class="container-fluid pt-5">
-        <div class="row">
-            <div class="col-3">
-                <div class="rounded shadow bg-body-secondary">
-                    <h1 class="display-5 text-center pb-2">
-                        {{ __('ui.revisorDashboard') }}
-                    </h1>
-                </div>
-            </div>
+        <div class="page-header text-center mb-5">
+            <h1 class="page-title">
+                {{ __('ui.revisorDashboard') }}
+            </h1>
         </div>
 
         @if ($article_to_check)
-            <div class="row justify-content-center pt-5">
+            <div class="row justify-content-center align-items-start g-4">
+                <div class="col-12 col-lg-7">
+                    <div class="revisor-panel">
+                        <h4 class="fw-bold mb-4">
+                            {{ __('ui.imageCheck') }}
+                        </h4>
 
-                <div class="col-md-8">
-                    <div class="row justify-content-center">
                         @if ($article_to_check->images->count())
-                            @foreach ($article_to_check->images as $key => $image)
-                                <div class="col-6">
-                                    <div class="card mb-3 ">
-                                        <div class="row g-0 ">
-                                            <div class="col-md-4">
-                                                <img src="{{ $image->getUrl(300, 300) }}"
-                                                    class="img-fluid rounded-start"
-                                                    alt="Immagine {{ $key + 1 }} dell'articolo {{ $article_to_check->title }}">
-                                            </div>
-
-                                            <div class="col-md-5 ps-3">
-                                                <div class="card-body">
-                                                    <h5>Labels</h5>
-                                                    @if ($image->labels)
-                                                        @foreach ($image->labels as $label)
-                                                            #{{ $label }},
-                                                        @endforeach
-                                                    @else
-                                                        <p class="fst-italic">No labels</p>
-                                                    @endif
+                            <div class="row g-4">
+                                @foreach ($article_to_check->images as $key => $image)
+                                    <div class="col-12">
+                                        <div class="vision-card">
+                                            <div class="row g-0 align-items-stretch">
+                                                <div class="col-12 col-md-4">
+                                                    <div class="vision-image-wrapper">
+                                                        <img 
+                                                            src="{{ $image->getUrl(300, 300) }}"
+                                                            class="vision-image"
+                                                            alt="Immagine {{ $key + 1 }} dell'articolo {{ $article_to_check->title }}"
+                                                        >
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-md-3">
-                                                <div class="card-body ">
-                                                    <h5>Ratings</h5>
+                                                <div class="col-12 col-md-5">
+                                                    <div class="vision-section">
+                                                        <h5 class="vision-title">
+                                                            {{ __('ui.labels') }}
+                                                        </h5>
 
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-2">
-                                                            <div class="text-center mx-auto {{ $image->adult }}">
-                                                            </div>
+                                                        <div class="vision-labels">
+                                                            @if ($image->labels)
+                                                                @foreach ($image->labels as $label)
+                                                                    <span class="vision-label">
+                                                                        #{{ $label }}
+                                                                    </span>
+                                                                @endforeach
+                                                            @else
+                                                                <p class="text-muted fst-italic mb-0">
+                                                                    No labels
+                                                                </p>
+                                                            @endif
                                                         </div>
-                                                        <div class="col-10">adult</div>
                                                     </div>
+                                                </div>
 
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-2">
-                                                            <div class="text-center mx-auto {{ $image->violence }}">
+                                                <div class="col-12 col-md-3">
+                                                    <div class="vision-section">
+                                                        <h5 class="vision-title">
+                                                            {{ __('ui.ratings') }}
+                                                        </h5>
+
+                                                        <div class="rating-list">
+                                                            <div class="rating-item">
+                                                                <i class="{{ $image->adult }}"></i>
+                                                                <span>adult</span>
+                                                            </div>
+
+                                                            <div class="rating-item">
+                                                                <i class="{{ $image->violence }}"></i>
+                                                                <span>violence</span>
+                                                            </div>
+
+                                                            <div class="rating-item">
+                                                                <i class="{{ $image->spoof }}"></i>
+                                                                <span>spoof</span>
+                                                            </div>
+
+                                                            <div class="rating-item">
+                                                                <i class="{{ $image->racy }}"></i>
+                                                                <span>racy</span>
+                                                            </div>
+
+                                                            <div class="rating-item">
+                                                                <i class="{{ $image->medical }}"></i>
+                                                                <span>medical</span>
                                                             </div>
                                                         </div>
-                                                        <div class="col-10">violence</div>
-                                                    </div>
-
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-2">
-                                                            <div class="text-center mx-auto {{ $image->spoof }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-10">spoof</div>
-                                                    </div>
-
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-2">
-                                                            <div class="text-center mx-auto {{ $image->racy }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-10">racy</div>
-                                                    </div>
-
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-2">
-                                                            <div class="text-center mx-auto {{ $image->medical }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-10">medical</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         @else
-                            @for ($i = 0; $i < 6; $i++)
-                                <div class="col-6 col-md-4 mb-4 text-center">
-                                    <img 
-                                        src="https://picsum.photos/300" 
-                                        class="img-fluid rounded shadow"
-                                        alt="immagine segnaposto"
-                                    >
-                                </div>
-                            @endfor
+                            <div class="row g-4">
+                                @for ($i = 0; $i < 6; $i++)
+                                    <div class="col-12 col-md-6 col-lg-4 text-center">
+                                        <img 
+                                            src="https://picsum.photos/300" 
+                                            class="img-fluid rounded shadow"
+                                            alt="immagine segnaposto"
+                                        >
+                                    </div>
+                                @endfor
+                            </div>
                         @endif
                     </div>
                 </div>
 
-                <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
-                    <div>
-                        <h1>{{ $article_to_check->title }}</h1>
+                <div class="col-12 col-lg-5">
+                    <div class="revisor-article-card">
+                        <span class="show-category">
+                            {{ __('ui.' . $article_to_check->category->name) }}
+                        </span>
 
-                        <h3>
-                            {{ __('ui.author') }}: {{ $article_to_check->user->name }}
+                        <h2 class="show-title mt-3">
+                            {{ $article_to_check->title }}
+                        </h2>
+
+                        <h5 class="mt-3">
+                            {{ __('ui.author') }}:
+                            <span class="fw-bold">{{ $article_to_check->user->name }}</span>
+                        </h5>
+
+                        <h3 class="show-price mt-3">
+                            {{ $article_to_check->price }} €
                         </h3>
 
-                        <h4>
-                            {{ __('ui.price') }}: {{ $article_to_check->price }} €
-                        </h4>
+                        <div class="show-description mt-4">
+                            <h5 class="fw-bold">
+                                {{ __('ui.description') }}
+                            </h5>
 
-                        <h4 class="fst-italic text-muted">
-                            #{{ __('ui.' . $article_to_check->category->name) }}
-                        </h4>
+                            <p>
+                                {{ $article_to_check->description }}
+                            </p>
+                        </div>
 
-                        <p class="h6">
-                            {{ $article_to_check->description }}
-                        </p>
-                    </div>
+                        <div class="revisor-actions mt-5">
+                            <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
 
-                    <div class="d-flex pb-4 justify-content-around">
-                        <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-danger py-2 px-5 fw-bold">
-                                {{ __('ui.reject') }}
-                            </button>
-                        </form>
+                                <button class="btn btn-danger btn-review">
+                                    {{ __('ui.reject') }}
+                                </button>
+                            </form>
 
-                        <form action="{{ route('accept', ['article' => $article_to_check]) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-success py-2 px-5 fw-bold">
-                                {{ __('ui.accept') }}
-                            </button>
-                        </form>
+                            <form action="{{ route('accept', ['article' => $article_to_check]) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+
+                                <button class="btn btn-success btn-review">
+                                    {{ __('ui.accept') }}
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
             </div>
         @else
-            <div class="row justify-content-center align-items-center height-custom text-center">
-                <div class="col-12">
-                    <h1 class="fst-italic display-4">
-                        {{ __('ui.noArticlesToReview') }}
-                    </h1>
+            <div class="empty-state text-center">
+                <h1 class="fst-italic display-5">
+                    {{ __('ui.noArticlesToReview') }}
+                </h1>
 
-                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">
-                        {{ __('ui.backToHomepage') }}
-                    </a>
-                </div>
+                <a href="{{ route('homepage') }}" class="mt-4 btn btn-presto">
+                    {{ __('ui.backToHomepage') }}
+                </a>
             </div>
         @endif
-    </div>
+    </section>
 </x-layout>

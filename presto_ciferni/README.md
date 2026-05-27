@@ -1,58 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Presto.it
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Presto.it è una piattaforma di annunci online sviluppata come progetto finale del corso **Hackademy On Demand - Aulab**.
 
-## About Laravel
+Il progetto permette agli utenti di registrarsi, pubblicare annunci, caricare immagini, cercare articoli e navigare il sito in più lingue.  
+Gli annunci non vengono pubblicati immediatamente: passano prima da una dashboard revisore, dove possono essere accettati o rifiutati.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funzionalità principali
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Registrazione, login e logout utenti
+- Creazione annunci tramite componente Livewire
+- Validazione dei dati del form
+- Relazioni tra utenti, articoli, categorie e immagini
+- Visualizzazione homepage con ultimi articoli accettati
+- Pagina con tutti gli articoli
+- Pagina dettaglio articolo
+- Filtro articoli per categoria
+- Sistema di revisione articoli
+- Ruolo revisore protetto da middleware
+- Richiesta per diventare revisore
+- Accettazione e rifiuto articoli
+- Upload multiplo immagini
+- Preview immagini prima del salvataggio
+- Rimozione singola immagine prima del submit
+- Salvataggio immagini tramite Laravel File Storage
+- Crop automatico immagini tramite job asincrono
+- Analisi immagini tramite Google Vision API
+- Safe Search Detection
+- Label Detection
+- Censura automatica dei volti
+- Watermark Presto.it sulle immagini
+- Ricerca full-text tramite Laravel Scout e TNTSearch
+- Multilingua con italiano, inglese e spagnolo
+- UI realizzata con Bootstrap
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Tecnologie utilizzate
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.4
+- Laravel
+- Laravel Fortify
+- Laravel Livewire
+- MySQL
+- Laravel File Storage
+- Laravel Queue / Jobs
+- Google Vision API
+- Spatie Image
+- Laravel Scout
+- TNTSearch
+- Bootstrap
+- Bootstrap Icons
+- Blade
+- Vite
+- Git / GitHub
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## Struttura principale del progetto
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Le entità principali del progetto sono:
 
-```bash
-composer require laravel/boost --dev
+- `User`
+- `Article`
+- `Category`
+- `Image`
 
-php artisan boost:install
-```
+## Le relazioni principali sono:
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- User 1-N Article
+- Category 1-N Article
+- Article 1-N Image

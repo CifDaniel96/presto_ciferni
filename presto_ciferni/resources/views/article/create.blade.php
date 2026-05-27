@@ -1,17 +1,15 @@
 <x-layout>
-    <div class="container pt-5">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <h1 class="display-4 pt-5">
-                    {{ __('ui.publishArticle') }}
-                </h1>
-            </div>
+    <section class="container py-5">
+        <div class="page-header text-center mb-5">
+            <h1 class="page-title">
+                {{ __('ui.publishArticle') }}
+            </h1>
         </div>
 
-        <div class="row justify-content-center align-items-center height-custom">
-            <div class="col-12 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-7">
                 <livewire:create-article-form />
             </div>
         </div>
-    </div>
+    </section>
 </x-layout>

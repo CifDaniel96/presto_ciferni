@@ -17,9 +17,8 @@ Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name(
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
 
 // RevisorController
-Route::get('/revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
-Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
-Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
+Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->middleware('isRevisor')->name('accept');
+Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->middleware('isRevisor')->name('reject');
 Route::get('/revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');

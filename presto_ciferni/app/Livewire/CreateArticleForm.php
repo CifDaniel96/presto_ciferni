@@ -85,7 +85,7 @@ class CreateArticleForm extends Component
     public function updatedTemporaryImages()
     {
         if ($this->validate([
-                'temporary_images.*' => 'image|max:1024',
+                'temporary_images.*' => 'image|max:2048',
                 'temporary_images' => 'max:6'
             ])) {
             foreach ($this->temporary_images as $image) {
@@ -100,4 +100,20 @@ class CreateArticleForm extends Component
             unset($this->images[$key]);
         }
     }
+
+    public function messages()
+{
+    return [
+        'title.required' => __('ui.titleRequired'),
+        'title.min' => __('ui.titleMin'),
+        'description.min' => __('ui.descriptionMin'),
+        'description.required' => __('ui.descriptionRequired'),
+        'price.required' => __('ui.priceRequired'),
+        'price.numeric' => __('ui.priceNumeric'),
+        'category.required' => __('ui.categoryRequired'),
+        'temporary_images.*.image' => __('ui.imageFile'),
+        'temporary_images.*.max' => __('ui.imageMax'),
+        'temporary_images.max' => __('ui.imagesMax'),
+    ];
+}
 }

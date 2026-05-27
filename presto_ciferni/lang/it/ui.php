@@ -17,6 +17,7 @@ return [
     // Homepage
     'publishArticle' => 'Pubblica un articolo',
     'noArticlesYet' => 'Non sono ancora stati creati articoli',
+    'homeSubtitle' => 'La piattaforma e-commerce semplice per pubblicare annunci, trovare occasioni e scoprire articoli interessanti.',
 
     // Articles
     'articleDetail' => 'Dettaglio articolo',
@@ -30,6 +31,24 @@ return [
     'articleCreated' => 'Articolo creato correttamente!',
     'articlesForCategory' => 'Articoli della categoria',
     'noArticlesForCategory' => 'Non ci sono articoli per questa categoria',
+
+    //Form
+    'emailAddress' => 'Indirizzo email',
+    'password' => 'Password',
+    'name' => 'Nome',
+    'confirmPassword' => 'Conferma la password',
+    'uploadImages' => 'Carica immagini',
+    'photoPreview' => 'Anteprima immagini',
+    'titleRequired' => 'Il titolo è obbligatorio.',
+    'titleMin' => 'Il titolo deve contenere almeno 5 caratteri.',
+    'descriptionMin' => 'La descrizione deve contenere almeno 10 caratteri.',
+    'descriptionRequired' => 'La descrizione è obbligatoria.',
+    'priceRequired' => 'Il prezzo è obbligatorio.',
+    'priceNumeric' => 'Il prezzo deve essere un numero.',
+    'categoryRequired' => 'La categoria è obbligatoria.',
+    'imageFile' => 'Il file deve essere un’immagine.',
+    'imageMax' => 'Ogni immagine non può superare 1 MB.',
+    'imagesMax' => 'Puoi caricare al massimo 6 immagini.',
 
     // Search
     'searchResults' => 'Risultati per la ricerca ',
@@ -46,6 +65,9 @@ return [
     'articleAccepted' => 'Articolo accettato correttamente',
     'articleRejected' => 'Articolo rifiutato correttamente',
     'backToHomepage' => "Torna all'homepage",
+    'imageCheck' => 'Controllo immagini',
+    'labels' => 'Etichette',
+    'ratings' => 'Valutazioni',
 
     // Become revisor
     'becomeRevisorQuestion' => 'Vuoi diventare revisore?',

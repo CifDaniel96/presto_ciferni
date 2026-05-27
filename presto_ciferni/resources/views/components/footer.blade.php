@@ -1,14 +1,23 @@
-<footer class="text-center bg-body-tertiary text-muted mt-5">
-    <div class="container py-4">
-        <h5>{{ __('ui.becomeRevisorQuestion') }}</h5>
-        <p>{{ __('ui.becomeRevisorText') }}</p>
+<footer class="presto-footer mt-5">
+    <div class="container py-5">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <h5 class="fw-bold mb-2">
+                    {{ __('ui.becomeRevisorQuestion') }}
+                </h5>
 
-        <a href="{{ route('become.revisor') }}" class="btn btn-success">
-            {{ __('ui.becomeRevisor') }}
-        </a>
+                <p class="text-muted mb-4">
+                    {{ __('ui.becomeRevisorText') }}
+                </p>
+
+                <a href="{{ route('become.revisor') }}" class="btn btn-presto">
+                    {{ __('ui.becomeRevisor') }}
+                </a>
+            </div>
+        </div>
     </div>
 
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="presto-footer-bottom text-center py-3">
         © 2026 Presto.it
     </div>
 </footer>

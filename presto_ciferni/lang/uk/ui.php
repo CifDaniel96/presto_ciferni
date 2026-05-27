@@ -17,6 +17,7 @@ return [
     // Homepage
     'publishArticle' => 'Publish an article',
     'noArticlesYet' => 'No articles have been created yet',
+    'homeSubtitle' => 'The simple e-commerce platform to publish listings, find deals and discover interesting items.',
 
     // Articles
     'articleDetail' => 'Article detail',
@@ -30,6 +31,24 @@ return [
     'articleCreated' => 'Article created successfully!',
     'articlesForCategory' => 'Articles in category',
     'noArticlesForCategory' => 'There are no articles for this category',
+
+    //Form
+    'emailAddress' => 'Email address',
+    'password' => 'Password',
+    'name' => 'Name',
+    'confirmPassword' => 'Confirm password',
+    'uploadImages' => 'Upload images',
+    'photoPreview' => 'Photo preview',
+    'titleRequired' => 'The title is required.',
+    'titleMin' => 'The title must be at least 5 characters.',
+    'descriptionMin' => 'The description must be at least 10 characters.',
+    'descriptionRequired' => 'The description is required.',
+    'priceRequired' => 'The price is required.',
+    'priceNumeric' => 'The price must be a number.',
+    'categoryRequired' => 'The category is required.',
+    'imageFile' => 'The file must be an image.',
+    'imageMax' => 'Each image must not be larger than 1 MB.',
+    'imagesMax' => 'You can upload up to 6 images.',
 
     // Search
     'searchResults' => 'Search results for ',
@@ -46,6 +65,9 @@ return [
     'articleAccepted' => 'Article accepted successfully',
     'articleRejected' => 'Article rejected successfully',
     'backToHomepage' => 'Back to homepage',
+    'imageCheck' => 'Image check',
+    'labels' => 'Labels',
+    'ratings' => 'Ratings',
 
     // Become revisor
     'becomeRevisorQuestion' => 'Do you want to become a revisor?',

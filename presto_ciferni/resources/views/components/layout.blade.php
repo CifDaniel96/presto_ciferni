@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -13,9 +13,9 @@
 <body>
     <x-navbar />
 
-    <div class="min-vh-100">
+    <main class="min-vh-100">
         {{ $slot }}
-    </div>
+    </main>
 
     <x-footer />
     @livewireScripts
